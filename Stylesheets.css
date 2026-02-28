@@ -1,0 +1,489 @@
+/*pc用*/
+@font-face {
+    font-family: "YuruSegmentFont";
+    src: url(YurusegmentFont.ttf) format("truetype");
+    font-display: swap; 
+}
+
+.anim-box.slidein.is-animated-left {
+  animation: slideIn-left 1.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+.anim-box.slidein.is-animated-right {
+  animation: slideIn-right 1.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+ 
+@keyframes slideIn-right {
+  0% {
+    transform: translateX(70%);
+    opacity: 0.4;
+  }
+  100% {
+    transform: translateX(0);
+  }
+  40%,100%{
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn-left {
+  0% {
+    transform: translateX(-70%);
+    opacity: 0.4;
+  }
+  100% {
+    transform: translateX(0);
+  }
+  40%,100%{
+    opacity: 1;
+  }
+}
+
+html{
+    overflow-x: clip;
+}
+
+body{
+  background: linear-gradient(
+    to bottom,
+    #fffef8 0%,
+    #ffffff 40%,
+    #f9f9f9 100%
+  );
+  margin: 0;
+  
+  min-height: 100vh;
+  font-family: "Inter","Noto Sans JP",system-ui, -apple-system, sans-serif;
+  letter-spacing: 0.03em;
+  color: #222;
+}
+
+header{
+    display: flex;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    height: 70px;
+    backdrop-filter: blur(8px);
+    background: rgba(255, 255, 255, 0.8);
+    border-bottom: 1.5px solid rgba(0,0,0,0.2);
+    z-index: 110;
+}
+
+nav{
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    
+}
+nav ul{
+    display: flex;
+    list-style: none;
+    padding: 10px;
+    margin: 0;
+}
+
+nav li{
+    margin: 0 15px;
+}
+
+nav a{
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    position: relative;
+    display: inline-block;
+}
+
+nav a::after{
+    content: "";
+    position: absolute;
+
+    left:50%;
+    bottom: -5px;
+    width: 100%;
+    height: 2px;
+    background-color: black;
+
+    transform: translateX(-50%) scaleX(0);
+    transform-origin: center;
+    transition: transform 0.3s ease;
+}
+
+nav a:hover::after{
+    transform: translateX(-50%) scaleX(1);
+}
+
+#menu{
+    display: none;
+}
+
+.Segment{
+    font-family: "YuruSegmentFont",sans-serif;
+}
+
+a.Segment{
+    display: inline-block;
+    text-decoration: none;
+    color: black;
+    align-items: center; 
+    font-size: clamp(50px,10vw,60px);
+    margin:10px 0 20px 10px;
+}
+
+main{
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  line-height: 1.8;
+}
+
+#photos{
+    display: flex;
+    align-items: center;
+}
+
+#photo_frame{
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 700px;
+    width: 75vw;
+    max-height: 500px;
+    height: auto;
+}
+
+#photo_preview{
+    max-width: 700px;
+    width: 75vw;
+    max-height: 500px;
+    height: auto;
+}
+
+.photo_btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    color: #333;
+    border: none;
+    background: transparent;
+    border-radius: 50%;
+}
+
+.photo_icon{
+    fill: currentColor;
+    width: clamp(40px,12vw,60px);
+
+}
+
+.photo_btn:hover{
+    background: rgba(0,0,0,0.08);
+}
+
+
+#preview{
+    width: 90%;
+    max-width: 600px;
+    min-height: 150px;
+
+    border: 1px solid #333;
+    padding: 12px;
+    margin: 10px 0;
+
+    font-size: 24px;
+    font-family: "YuruSegmentFont";
+
+    white-space: pre-wrap;
+    word-break: break-word;
+
+}
+
+textarea {
+  width: 95%;
+  max-width: 600px;
+  height: 200px;
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+#downloads{
+    display: flex;
+}
+
+.download{
+    border:none;
+    background-color: black;
+    color: white;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    font-size: clamp(15px,3.125vw,18px);
+    border-radius: 999px;
+    width: 40vw;
+    max-width: 250px;
+    height: 12.8vh;
+    max-height: 80px;
+    margin: 20px 0 0 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    transition: color 0.3s ease,transform .2s ease,box-shadow .2s ease;
+}
+
+.download:hover{
+    transform: translateY(4px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+.download_icon{
+    fill: currentColor;
+}
+
+.download:hover{
+    color: coral;
+}
+
+footer{
+    margin-top: 40px;
+}
+
+#news_list{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.news_photos{
+    max-width: 700px;
+    width: 75vw;
+    max-height: 500px;
+    height: auto;
+}
+
+.date{
+    font-weight: bold;
+}
+
+.news_child{
+    margin: 10px 20px;
+    padding: 15px 0px;
+    border-bottom: #ccc solid 3px;
+}
+
+.news_child a{
+    color: black;
+    margin: 2px;
+
+    text-decoration: none;
+
+}
+
+.wrap{
+    position: relative;
+    width: 210px;
+    max-width: 210px;
+    height: 80px;
+    overflow: visible;
+    margin: 100px auto 0;
+}
+
+#okozukai_button{
+  width: 100%;
+  height: 100%;
+  font-size: 20px;
+  align-items: center;
+  justify-content: center; 
+  background: white;
+  border: 1px solid #333;
+  border-radius: 999px;
+  position: relative;
+  z-index: 1; 
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.face{
+  position: absolute;
+  font-family: "YuruSegmentFont";
+  top: 50%;
+  right: 0;
+  transform: translate(0,-50%);
+  font-size: clamp(30px,10vw,40px);
+  z-index: 0;
+  white-space: nowrap;
+  transition: transform 3s ease 0.5s;
+}
+
+.wrap:hover .face{
+  transform: translate(120%,-50%);
+}
+
+.wrap:hover #okozukai_button{
+  background: #333;
+  color: white;
+}
+
+.photo_dots{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.dot{
+    width: 10px;
+    height: 10px;
+    background: #ccc;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.2s ease,transform 0.2s ease;
+}
+.dot.active{
+    background: #333;
+}
+.dot:hover{
+    transform: scale(1.2);
+}
+/*タブレット,スマホ用*/
+@media screen and (max-width:1300px){
+    main{
+        z-index: 100;
+    }
+    /*ボタン*/
+    #menu{
+        width: 50px;
+        height: 44px;
+
+        position: relative;
+        display: block;
+
+        background: none;
+        border: none;
+
+        padding: 0;
+        margin-left: auto;
+        margin-right: 10px;
+        margin-top: 10px;
+
+        z-index: 12;
+    }
+
+    #menu span {
+        width: 100%;
+        height: 4px;
+
+        position: absolute;
+
+        background: #333;
+
+        left: 0;
+        margin: 6px 0;
+    }
+
+    #menu,#menu span{
+        display: inline-block;
+        transition: all .5s;
+        box-sizing: border-box;
+    }
+
+    #menu span:nth-of-type(1){
+        top: 0;
+    }
+
+    #menu span:nth-of-type(2){
+        top: 14px;
+    }
+
+    #menu span:nth-of-type(3){
+        bottom: 0;
+    }
+
+    #menu.active span:nth-of-type(1){
+        -webkit-transform: 
+        translateY(14px) rotate(-45deg);
+        transform:translateY(14px)
+        rotate(-45deg);
+    }
+
+    #menu.active span:nth-of-type(2){
+        opacity: 0;
+    }
+
+    #menu.active span:nth-of-type(3){
+        -webkit-transform: 
+        translateY(-14px) rotate(45deg);
+        transform:translateY(-14px)
+        rotate(45deg);
+    }
+    /*メニュー*/
+    nav{
+       position: fixed;
+       top: 0;
+       right: 0;
+
+       max-width: 312px;
+       width: 55vw;
+       height: 100vh;
+
+       align-items: flex-start;
+       padding-top: 30px;
+
+       background: white;
+
+       transform: translateX(100%);
+       transition: transform .4s ease;
+
+       z-index: 11;
+    }
+
+    nav.active{
+        transform: translateX(0);
+    }
+    
+    nav ul{
+        display: flex;
+        flex-direction: column;
+        padding: 40px 20px;
+    }
+
+    nav li{
+        margin: 15px 0;
+    }
+    
+    #overlay{
+        position: fixed;
+        top: 0;
+        left: 0;
+
+        width: 100vw;
+        height: 100vh;
+
+        background: rgba(0,0,0,0.5);
+
+        opacity: 0;
+        visibility: hidden;
+
+        transition: opacity .4s ease,
+                    visibility 0s linear .4s;
+
+        z-index: 10;
+    }
+
+    #overlay.active{
+        opacity: 1;
+        visibility: visible;
+        transition: opacity .4s ease;
+    }
+
+    body.no-scroll{
+        overflow: hidden;
+        height: 100vh;
+    }
+
+    /*顔の非表示*/
+    .face{
+        display: none;
+    }
+
+}
