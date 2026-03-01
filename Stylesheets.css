@@ -127,7 +127,7 @@ a.Segment{
     text-decoration: none;
     color: black;
     align-items: center; 
-    font-size: clamp(50px,10vw,60px);
+    font-size: clamp(25px,10vw,60px);
     margin:10px 0 20px 10px;
 }
 
